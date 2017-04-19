@@ -13,11 +13,20 @@ class PeopleList extends Component {
         }
     }
 
-    getSearch(array, filter) {
-        if (filter) {
-            return array.filter( i => i.name.toLowerCase().includes(filter.toLowerCase()));
+    sortByPicture(array, picture) {
+        if (picture) {
+            return array.filter( i => i.image === picture);
         } else {
             return array;
+        }
+    }
+
+    getSearch(array, filter) {
+        let sortByPicture = this.sortByPicture(array, this.props.sortByPic);
+        if (filter) {
+            return sortByPicture.filter( i => i.name.toLowerCase().includes(filter.toLowerCase()));
+        } else {
+            return sortByPicture;
         }
     }
 
@@ -49,7 +58,8 @@ function mapStateProps(state) {
         people: state.people,
         search: state.search,
         sortBy: state.sort.sort,
-        single: state.single
+        single: state.single,
+        sortByPic: state.sortByPicture
     }
 }
 

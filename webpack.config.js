@@ -14,8 +14,6 @@ const cssProd = ExtractTextPlugin.extract({
 const cssConfig = isProd ? cssProd : cssDev;
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
-
     entry: {
 
         index: './src/index.js',

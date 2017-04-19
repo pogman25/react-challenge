@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <header>
             <h1>React Challenge</h1>
-            <p>Поиск и сортировка данных</p>
+            <p>Search and sort data</p>
         </header>
     )
 };

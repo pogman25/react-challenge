@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { SEARCH_PEOPLE, SORT, GET_PEOPLE_REQUEST, GET_PEOPLE_SUCCESS, GET_PEOPLE_ERROR, SET_ID } from '../constants'
+import { SEARCH_PEOPLE, SORT, SORT_BY_PICTURE, GET_PEOPLE_REQUEST, GET_PEOPLE_SUCCESS, GET_PEOPLE_ERROR, SET_ID } from '../constants'
 
 export function search (event) {
     return (dispatch) => {
@@ -16,6 +16,15 @@ export function sort (sort, by) {
         dispatch ({
             type: SORT,
             payload: {sort, by}
+        })
+    }
+}
+
+export function sortByPicture (sort) {
+    return (dispatch) => {
+        dispatch ({
+            type: SORT_BY_PICTURE,
+            payload: sort
         })
     }
 }

@@ -10,12 +10,12 @@ class App extends Component {
 
     render() {
         const { sortBy } = this.props;
-        const { search, sort, setId } = this.props.pageActions;
+        const { search, sort, setId, sortByPicture } = this.props.pageActions;
         return (
             <div>
                 <Header/>
                 <Input setId={setId} search={search}/>
-                <SortBtn setId={setId} sortBy={sortBy} sort={sort} />
+                <SortBtn setId={setId} sortBy={sortBy} sort={sort} sortByPicture={sortByPicture}/>
                 <PeopleList/>
             </div>
         )

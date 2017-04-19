@@ -34,4 +34,17 @@
     border: 1px solid #d9534f;
   }
 
+  .sortByPic {
+    margin-top: 20px;
+    img {
+      cursor: pointer;
+      width: 10%;
+    }
+    @media screen and (max-width: 767px) {
+      img {
+        width: 20%;
+      }
+    }
+  }
+
 }

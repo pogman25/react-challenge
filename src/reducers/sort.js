@@ -11,3 +11,12 @@ export const sort = (state=init, action) => {
             return state;
     }
 };
+
+export const sortByPicture = (state='', action) => {
+    switch (action.type) {
+        case 'SORT_BY_PICTURE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
