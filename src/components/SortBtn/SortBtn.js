@@ -39,7 +39,10 @@ class SortBtn extends Component {
 }
 
 SortBtn.propTypes = {
-    sort: PropTypes.func.isRequired
+    sort: PropTypes.func.isRequired,
+    setId: PropTypes.func.isRequired,
+    sortBy: PropTypes.bool.isRequired,
+    sortByPicture: PropTypes.func.isRequired
 };
 
 export default SortBtn;

@@ -10,7 +10,7 @@ class PeopleList extends Component {
 
     render() {
         const { people, single } = this.props;
-        let length = people.length ? true : false;
+        let length = !!people.length;
         return (
             <div className='content'>
                 <div className='human col-sm-4 col-md-3 col-lg-2'>
@@ -27,7 +27,9 @@ class PeopleList extends Component {
 }
 
 PeopleList.propTypes = {
-    people: PropTypes.array.isRequired
+    people: PropTypes.array.isRequired,
+    action: PropTypes.func.isRequired,
+    single: PropTypes.string.isRequired
 };
 
 export default PeopleList;

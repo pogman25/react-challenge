@@ -15,7 +15,8 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  search: PropTypes.func.isRequired
+  search: PropTypes.func.isRequired,
+  setId: PropTypes.func.isRequired
 };
 
 export default Input;
