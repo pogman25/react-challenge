@@ -1,0 +1,27 @@
+@import '~normalize.css';
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    display: inline-flex;
+    width: round(100% / 12 * $i);
+  }
+}
+
+$breakpoints: (sm: 768px, md: 992px, lg: 1200px);
+
+@each $size, $bp in $breakpoints {
+  @media screen  and (min-width: $bp){
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        display: inline-flex;
+        width: round(100% / 12 * $i);
+        padding: 0 15px;
+      }
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,23 @@
+.human {
+  .single {
+    display: block;
+    text-align: center;
+
+    span {
+      margin: 0 auto;
+    }
+
+    div.singlePhrase {
+      margin: 20px auto;
+    }
+
+  }
+  .singlePic {
+    width: 100%;
+
+    .singleAnimal{
+      margin-top: 10px;
+    }
+  }
+
+}
