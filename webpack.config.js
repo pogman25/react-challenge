@@ -24,6 +24,8 @@ module.exports = {
         path: path.resolve(__dirname, 'build')
     },
 
+    devtool: isProd ? false : 'cheap-inline-module-source-map',
+
     module: {
       rules: [
           {
@@ -100,20 +102,6 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
 
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                screw_ie8: true, // React doesn't support IE8
-                warnings: false
-            },
-            mangle: {
-                screw_ie8: true
-            },
-            output: {
-                comments: false,
-                screw_ie8: true
-            }
-        }),
-
         new HtmlWebpackPlugin({
             title: 'My WebPack',
             // minify: {
@@ -128,3 +116,20 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
     ]
 };
+
+if (isProd) {
+    new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true,
+        compress: {
+            screw_ie8: true, // React doesn't support IE8
+            warnings: false
+        },
+        mangle: {
+            screw_ie8: true
+        },
+        output: {
+            comments: false,
+            screw_ie8: true
+        }
+    })
+}
