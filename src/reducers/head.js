@@ -19,4 +19,13 @@ export const sortByPicture = (state='', action) => {
         default:
             return state;
     }
-}
+};
+
+export const search = (state='', action) => {
+    switch (action.type) {
+        case 'SEARCH_PEOPLE':
+            return action.payload;
+        default:
+            return state;
+    }
+};

@@ -1,10 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './ulList.scss';
 
-export class ListPeople extends Component {
-    render() {
+export const UlList = ({people, action}) => {
+
+        const getId = (e) => {
+            e.preventDefault();
+            action(+e.target.getAttribute('data-id'));
+        };
+
         let count = 0;
-        const { people, getId } = this.props;
+
         return (
             <ul>
                 <li>
@@ -27,10 +33,9 @@ export class ListPeople extends Component {
                 ))}
             </ul>
         )
-    }
-}
+};
 
-ListPeople.propTypes = {
+UlList.propTypes = {
     people: PropTypes.array.isRequired,
-    getId: PropTypes.func.isRequired
+    action: PropTypes.func.isRequired
 };

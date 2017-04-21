@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { sort, sortByPicture } from './sort';
-import { search } from './search';
-import { people } from './people';
-import { single } from './single';
+import { sort, sortByPicture, search } from './head';
+import { people, single } from './people';
 
 const reducer = combineReducers({
     people,

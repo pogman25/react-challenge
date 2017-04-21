@@ -1,12 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './single.scss';
 
-export class Single extends Component {
-    render() {
-        const { people, id } = this.props;
-        return (
+export const Single = ({people, id}) => (
             <div className="single">
-                <div className="singlePic"><img className="singleAnimal" src={require(`../../../images/${people[id].image}.svg`)} /></div>
+                <div className="singlePic"><img className="singleAnimal" src={require(`../../../images/${people[id].image}.svg`)} alt={people[id].image} /></div>
                 <div className="singleName"><h2>{people[id].name}</h2></div>
                 <hr/>
                 <div className="singleAge">
@@ -25,10 +23,7 @@ export class Single extends Component {
                 </div>
                 <div className="singlePhrase"><strong>Favorite phrase: </strong><span>{people[id].phrase}</span></div>
             </div>
-        )
-    }
-
-}
+        );
 
 Single.propTypes = {
     people: PropTypes.array.isRequired,

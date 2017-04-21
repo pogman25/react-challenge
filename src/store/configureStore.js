@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { logger } from 'redux-logger';
 import rootReducer from '../reducers';
-import {loadState, saveState} from './localStorage';
+import {loadState, saveState} from './LocalStorage';
 
 export default function configureStore() {
 

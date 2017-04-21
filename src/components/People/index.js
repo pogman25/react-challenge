@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import { UlList } from './UlList/UlList';
+import {Single} from './Single/Single';
 
-import * as pageActions from '../../actions/actions';
-import List from '../../components/PeopleList/PeopleList';
+import './index.scss';
+
 
 class PeopleList extends Component {
 
@@ -44,29 +45,31 @@ class PeopleList extends Component {
         const { people, fetching } = this.props.people;
         const sortBy = this.props.sortBy;
         const setId = this.props.pageActions.setId;
+        const single = this.props.single;
+
+        let length = !!this.sortBy(people, sortBy).length;
+
         return (
-            <div>
-                {fetching && <span>Загружаю людей...</span>}
-                {!fetching && <List action={setId} single={this.props.single} people={this.sortBy(people, sortBy)}/>}
+            <div className='content'>
+                <div className='human col-sm-4 col-md-3 col-lg-2'>
+                    {length && <Single people={this.sortBy(people, sortBy)} id={single}/>}
+                    {!length && <div>Nobody here</div>}
+                </div>
+                <div className='list col-sm-8 col-md-9 col-lg-10'>
+                    {fetching && <span>Загружаю людей...</span>}
+                    {!fetching && length && <UlList action={setId} people={this.sortBy(people, sortBy)}/>}
+                </div>
             </div>
         )
     }
 }
 
-function mapStateProps(state) {
-    return {
-        people: state.people,
-        search: state.search,
-        sortBy: state.sort.sort,
-        single: state.single,
-        sortByPic: state.sortByPicture
-    }
-}
+PeopleList.PropTypes = {
+    people: PropTypes.array.isRequired,
+    search: PropTypes.string.isRequired,
+    sortBy: PropTypes.bool.isRequired,
+    single: PropTypes.number.isRequired,
+    sortByPic: PropTypes.string.isRequired
+};
 
-function mapDispatchProps (dispatch) {
-    return {
-        pageActions: bindActionCreators(pageActions, dispatch)
-    }
-}
-
-export default connect(mapStateProps, mapDispatchProps)(PeopleList);
+export default PeopleList;

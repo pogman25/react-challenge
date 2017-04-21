@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { SEARCH_PEOPLE, SORT, SORT_BY_PICTURE, GET_PEOPLE_REQUEST, GET_PEOPLE_SUCCESS, GET_PEOPLE_ERROR, SET_ID } from '../constants'
 
-export function search (event) {
+export const search = (event) => {
     return (dispatch) => {
 
         dispatch({
@@ -9,27 +9,27 @@ export function search (event) {
             payload: event
         })
     }
-}
+};
 
-export function sort (sort, by) {
+export const sort = (sort, by) => {
     return (dispatch) => {
         dispatch ({
             type: SORT,
             payload: {sort, by}
         })
     }
-}
+};
 
-export function sortByPicture (sort) {
+export const sortByPicture = (sort) => {
     return (dispatch) => {
         dispatch ({
             type: SORT_BY_PICTURE,
             payload: sort
         })
     }
-}
+};
 
-export function getPeople() {
+export const getPeople = () => {
     return dispatch => {
         dispatch({
             type: GET_PEOPLE_REQUEST
@@ -48,13 +48,13 @@ export function getPeople() {
                 payload: err
             })});
     }
-}
+};
 
-export function setId(id=0) {
+export const setId = (id=0) => {
     return dispatch => {
         dispatch({
             type: SET_ID,
             payload: id
         })
     }
-}
+};
