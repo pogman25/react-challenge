@@ -21,6 +21,7 @@ const SortBtn = ({sort, setId, sortBy, sortByPicture}) => {
     };
 
     const sortByPic = (e) => {
+        setId();
         sortByPicture(e.target.alt);
     };
 
@@ -30,8 +31,8 @@ const SortBtn = ({sort, setId, sortBy, sortByPicture}) => {
                 <button className="sortByAge" onClick={e => sorting(e)}>Sort by age</button>
                 <button className="btnReset" onClick={e => sorting(e)}>Reset</button>
                 <div className="sortByPic">
-                    {picks.map(i => (
-                        <img key={i} onClick={e => sortByPic(e)} src={require(`../../../images/${i}.svg`)} alt={i} />
+                    {picks.map((i, num) => (
+                        <img key={num} onClick={e => sortByPic(e)} src={require(`../../../images/${i}.svg`)} alt={i} />
                     ))}
                 </div>
             </div>

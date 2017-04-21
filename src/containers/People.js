@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PeopleList from '../components/People'
+import People from '../components/People'
 
 import * as pageActions from '../actions/actions';
 
@@ -21,4 +21,4 @@ function mapDispatchProps (dispatch) {
     }
 }
 
-export default connect(mapStateProps, mapDispatchProps)(PeopleList);
+export default connect(mapStateProps, mapDispatchProps)(People);

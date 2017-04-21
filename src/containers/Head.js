@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import App from '../components/Head';
+import Head from '../components/Head';
 import * as pageActions from '../actions/actions'
 
 
@@ -18,4 +18,4 @@ function mapDispatchProps (dispatch) {
     }
 }
 
-export default connect(mapStateProps, mapDispatchProps)(App);
+export default connect(mapStateProps, mapDispatchProps)(Head);
