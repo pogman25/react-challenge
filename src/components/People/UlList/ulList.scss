@@ -35,6 +35,10 @@
 
     &.active {
       background: #eee9d6;
+      .animal{
+        transform-origin: 50% 100%;
+        animation: breez 0.5s ease-in-out;
+      }
     }
 
   }
@@ -56,4 +60,11 @@
     }
   }
 
+}
+
+@keyframes breez {
+  0% {transform: rotateZ(0deg);}
+  25% {transform: rotateZ(-10deg);}
+  75% {transform: rotateZ(10deg);}
+  100% {transform: rotateZ(0deg);}
 }
