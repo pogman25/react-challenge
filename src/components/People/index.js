@@ -57,7 +57,7 @@ class PeopleList extends Component {
                 </div>
                 <div className='list col-sm-8 col-md-9 col-lg-10'>
                     {fetching && <span>Загружаю людей...</span>}
-                    {!fetching && length && <UlList action={setId} people={this.sortBy(people, sortBy)}/>}
+                    {!fetching && length && <UlList action={setId} single={single} people={this.sortBy(people, sortBy)}/>}
                 </div>
             </div>
         )

@@ -22,7 +22,12 @@ const SortBtn = ({sort, setId, sortBy, sortByPicture}) => {
 
     const sortByPic = (e) => {
         setId();
-        sortByPicture(e.target.alt);
+        let { target } = e;
+        target.classList.add('rotate');
+        sortByPicture(target.alt);
+        setTimeout(() => {
+            target.classList.remove('rotate');
+        }, 1000);
     };
 
         return (

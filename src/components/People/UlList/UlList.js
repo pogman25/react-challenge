@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ulList.scss';
 
-export const UlList = ({people, action}) => {
+export const UlList = ({people, action, single}) => {
 
         const getId = (e) => {
             e.preventDefault();
@@ -22,7 +22,7 @@ export const UlList = ({people, action}) => {
                     </div>
                 </li>
                 {people.map( ({id, name, image, age, phone}) => (
-                    <li data-id={count++} onClick={e => getId(e)} key={id}>
+                    <li className={(single === count) ? 'active' : '' } data-id={count++} onClick={e => getId(e)} key={id}>
                         <div className='humanList'>
                             <div className='col-2'><img className='animal' src={require(`../../../images/${image}.svg`)} alt={image}/></div>
                             <div className='col-5'>{name}</div>
